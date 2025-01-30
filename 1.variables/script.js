@@ -19,7 +19,10 @@ totalCompra,
 totalVenda,
 lucro;
 
-console.log(firstName, age, comidaFavorita);
+console.log(firstName, age, comidaFavorita, lucro);
 
 //descobrir qual tipo de dado
 console.log(typeof firstName);
+
+//concatenação - Template String
+console.log(`Meu nome é ${firstName}`) ;
