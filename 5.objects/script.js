@@ -88,10 +88,13 @@ let ylana = {
   profession: 'developer',
   city:  'brasilia',
   pet: 'amora',
-  fullName: function() {
-   console.log(`Olá, meu nome completo é ${this.firstName} ${this.lastName}`)
-}}
-console.log(ylana.fullName())
+  // fullName: function() {
+  //  console.log(`Olá, meu nome completo é ${this.firstName} ${this.lastName}`}
+}
+
+ylana.nomeCompleto = function() {
+  return `${this.firstName} ${this.lastName}`
+};
 
 // Modifique o valor da propriedade preco para 3000
 let carro = {
@@ -107,7 +110,57 @@ let cachorro = {
   raca: "labrador",
   cor: 'preto',
   idade: 10,
-  lateVerHumano: true,
+  latir(pessoa) {
+    if(pessoa === 'homem') {
+      return 'Latir';
+    } else {
+      return 'Silencio';
+    }
+  }
 }
 
-cachorro.lateVerHumano //true
+cachorro.latir('mulher');
+
+//tudo é objeto
+//uma string herda propriedades e métodos do construtor
+let meuNome = "Ylana";
+meuNome.length; //5
+meuNome.charAt(1); //'l'
+meuNome.replace('na', 'nara'); //'Ylanara'
+meuNome; // 'Ylana'
+
+//por um breve momento o número é envolvido em um Objeto(Coerção), tendo acesso assim as suas propriedades e métodos
+let altura = 1.7;
+altura.toString(); //"1.7"
+altura.toFixed(); // "2"
+
+//funções também possuem métodos e propriedades
+
+//ELEMENTOS DO DOM
+let btn = document.querySelector('.btn')
+
+//EXERCICIOS
+// nomeie 3 propriedades ou métodos de strings
+let kitty = 'Amora'
+
+kitty.length;
+kitty.charAt(4);
+kitty.toUpperCase();
+
+// nomeie 5 propriedades ou métodos de elementos do DOM
+// document.querySelector('.btn');
+// document.querySelectorAll("div.note, div.alert");
+// document.getElementById("name");
+// document.addEventListener();
+// document.getElementsByClassName("name");
+
+// busque na web um objeto (método) capaz de interagir com o clipboard,
+// clipboard é a parte do seu computador que lida com o CTRL + C e CTRL + V
+function getPasteData(e) {
+  const clipboardData = e.clipboardData || window.clipboardData;
+  const pastedData = clipboardData.getData('Text');
+
+  console.log(pastedData);
+}
+
+document.querySelector('#element').addEventListener('paste', getPasteData);
