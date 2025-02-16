@@ -1,276 +1,159 @@
-// // Objetos
-// // String
+// Objetos
+// Number e Math
 
-// //É a construtora de strings, toda string possui as propriedades e métodos do prototype de String.
 
-// const comida = 'Pizza';
-// const liquido = new String('Água');
-// const ano = new String(2018);
+// Number
 
-// //str.length
-// //Propriedade com o total de caracteres da string.
+//É a construtora de números, todo número possui as propriedades e métodos do prototype de Number. Number também possui alguns métodos.
 
-// const food = 'Pizza';
-// const frase = 'A melhor comida';
+const ano = 2018;
+const preco = new Number(99);
 
-// comida.length; // 5
-// frase.length; // 15
 
-// food[0] // P
-// frase[0] // A
-// frase[frase.length - 1] // a
 
 
+// Number.isNaN() e Number.isInteger();
+// isNaN() é um método de Number, ou seja, não faz parte to protótipo. isInteger() verifica se é uma integral.
 
+Number.isNaN(NaN); // true
+Number.isNaN(4 + 5); // false
 
-// //str.charAt(n)
-// //Retorna o caracter de acordo com o index de (n).
+Number.isInteger(20); // true
+Number.isInteger(23.6); // false
 
-// const linguagem = 'JavaScript';
 
-// linguagem.charAt(0); // J
-// linguagem.charAt(2); // v
-// linguagem.charAt(linguagem.length - 1); // t
 
 
 
+// Number.parseFloat() e Number.parseInt()
+// parseFloat() serve para retornarmos um número a partir de uma string. A String deve começar com um número. parseInt recebe também um segundo parâmetro que é o Radix, 10 é para decimal.
 
-// //str.concat(str2, str3, ...)
-// //Concatena as strings e retorna o resultado.
+parseFloat('99.50'); // Mesma função sem o Number
+Number.parseFloat('99.50'); // 99.5
+Number.parseFloat('100 Reais'); // 100
+Number.parseFloat('R$ 100'); // NaN
 
-// const phrase = 'A melhor linguagem é ';
-// const language = 'JavaScript';
+parseInt('99.50', 10); // 99
+parseInt(5.43434355555, 10); // 5
+Number.parseInt('100 Reais', 10); // 100
 
-// const fraseCompleta = phrase.concat(language, '!!');
+// Float possui decimal, Integer não.
 
 
 
 
-// // str.includes(search, position)
-// // Procura pela string exata dentro de outra string. A procura é case sensitive.
+//n.toFixed(decimais)
+// Arredonda o número com base no total de casas decimais do argumento.
 
-// const fruit = 'Banana';
-// const listaFrutas = 'Melancia, Banana, Laranja';
+const preco2 = 2.99;
+preco2.toFixed(); // 3
 
-// listaFrutas.includes(fruit); // true
-// fruit.includes(listaFrutas); // false
+const carro = 1000.455;
+carro.toFixed(2) // 1000.46
 
+const preco3 = 1499.49;
+preco3.toFixed() // 1499
 
 
 
-// // str.endsWith(search) e str.startsWith(search)
-// // Procura pela string exata dentro de outra string. A procura é case sensitive.
 
-// const fruta1 = 'Banana';
 
-// fruta1.endsWith('nana'); // true
-// fruta1.startsWith('Ba'); // true
-// fruta1.startsWith('ba'); // false
+// n.toString(radix)
+// Transforma o número em uma string com base no Radix. Use o 10 para o sistema decimal.
 
+const preco4 = 2.99;
+preco4.toString(10); // '2.99'
 
 
 
-// // str.slice(start, end)
-// // Corta a string de acordo com os valores de start e end.
 
-// const transacao1 = 'Depósito de cliente';
-// const transacao2 = 'Depósito de fornecedor';
-// const transacao3 = 'Taxa de camisas';
+// n.toLocaleString(lang, options);
+// Formata o número de acordo com a língua e opções passadas.
 
-// transacao1.slice(0, 3); // Dep
-// transacao2.slice(0, 3); // Dep
-// transacao3.slice(0, 3); // Tax
+const preco5 = 59.49;
+preco5.toLocaleString('en-US', {style: 'currency', currency: 'USD'}); // $59.49
+preco5.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}); // R$ 59,49
 
-// transacao1.slice(12); // cliente
-// transacao1.slice(-4); // ente
-// transacao1.slice(3, 6); // ósi
 
 
 
+// Math
+// É um Objeto nativo que possui propriedades e métodos de expressões matemáticas comuns.
 
-// // str.substring(start, end)
-// // Corta a string de acordo com os valores de start e end. Não funcionar com valores negativos como o slice.
+Math.PI // 3.14159
+Math.E // 2.718
+Math.LN10 // 2.303
 
-// const linguagens = 'JavaScript';
-// linguagens.substring(3,5); // aS
-// linguagens.substring(0,4); // Java
-// linguagens.substring(4); // Script
-// linguagens.substring(-3); // JavaScript
 
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 
 
 
-// // str.indexOf(search) e str.lastIndexOf(search)
-// // Retorna o index da string, assim que achar o primeiro resultado ele já retorna. No caso do lastIndexOf ele retorna o último resultado.
 
-// const instrumento = 'Guitarra';
+// Math.abs(), Math.ceil(), Math.floor() e Math.round()
 
-// instrumento.indexOf('r'); // 5
-// instrumento.lastIndexOf('r'); // 6
-// instrumento.indexOf('ta'); // 3
+// abs() retorna o valor absoluto, ou seja, transforma negativo em positivo. ceil() arredonda para cima, retornando sempre uma integral e floor para baixo. round() arredonda para o número integral mais próximo.
 
+Math.abs(-5.5); // 5.5
+Math.ceil(4.8334); // 5
+Math.ceil(4.3); // 5
+Math.floor(4.8334); // 4
+Math.floor(4.3); // 4
+Math.round(4.8334); // 5
+Math.round(4.3); // 4
 
 
 
-// // str.padStart(n, str) e str.padEnd(n, str)
-// // Aumenta o tamanho da string para o valor de n. Ou seja, uma string com 8 caracteres, se passarmos n = 10, ela passará a ter 10 caracteres. O preenchimento é feito com espaços, caso não seja declarado o segundo argumento.
 
-// const listaPrecos = ['R$ 99', 'R$ 199', 'R$ 12000'];
 
-// listaPrecos.forEach((preco) => {
-//   console.log(preco.padStart(10, '.'));
-// })
 
-// listaPrecos[0].padStart(10, '.'); // .....R$ 99
-// listaPrecos[0].padEnd(10, '.');   // R$ 99.....
+//Math.max(), Math.min() e Math.random();
+// max() retorna o maior número de uma lista de argumentos, min() o menor número e random() um número aleatório entre 0 e 1.
 
+Math.max(5,3,10,42,2); // 42
+Math.min(5,3,10,42,2); // 2
 
+Math.random(); // 0.XXX
+Math.floor(Math.random() * 100); // entre 0 e 100
+Math.floor(Math.random() * 500);  // entre 0 e 500
 
+// Número random entre 72 e 32
+Math.floor(Math.random() * (72 - 32 + 1)) + 32;
+//Math.floor(Math.random() * (max - min + 1)) + min;
 
-// // str.repeat(n)
-// // Repete a string (n) vezes.
 
-// const frases= 'Ta';
-// frases.repeat(5); // TaTaTaTaTa
 
 
 
+// Exercícios
 
-// // str.replace(regexp|substr, newstr|function)
-// // Troca parte da string por outra. Podemos utilizar uma regular expression ou um valor direto. Se usarmos um valor direto ele irá trocar apenas o primeiro valor que encontrar.
+// Retorne um número aleatório
+// entre 1050 e 2000
+const random = Math.floor(Math.random() * (2000 - 1050 + 1)) + 1050;
+console.log(random);
 
-// let listaItens1 = 'Camisas Bonés Calças Bermudas Vestidos Saias';
-// listaItens1 = listaItens1.replace(/[ ]+/g, ', ');
+// Retorne o maior número da lista abaixo
+const numeros = '4, 5, 27, 8, 9';
+const num = numeros.split(',').map(Number);
+console.log(Math.max(...num));
 
-// let preco = 'R$ 1200,43';
-// preco = preco.replace(',', '.'); // 'R$ 1200.43'
 
-//     //Veremos mais sobre Regular Expression
+// Crie uma função para limpar os preços
+// e retornar os números com centavos arredondados
+// depois retorne a soma total
+const listaPrecos = ['R$ 59,99', ' R$ 100,222',
+                     'R$ 230  ', 'r$  200'];
 
 
+function limparPreco(preco) {
+  preco = +preco.toUpperCase().replace('R$', '').replace(",", ".").trim();
+  preco = +preco.toFixed(2);
+  return preco;
+}
 
+let total = 0;
+listaPrecos.forEach((preco) => {
+  total += limparPreco(preco);
+})
 
-
-// // str.split(padrao)
-// // Divide a string de acordo com o padrão passado e retorna uma array.
-
-// const listaItens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
-// const arrayItens = listaItens.split(' ');
-
-// const htmlText = '<div>O melhor item</div><div>A melhor lista</div>';
-// const htmlArray = htmlText.split('div');
-// const htmlNovo = htmlArray.join('section');
-
-
-//     //join é um método de Array
-
-
-
-
-
-// // str.toLowerCase() e str.toUpperCase()
-// //Retorna a string em letras maiúsculas ou minúsculas. Bom para verificarmos input de usuários.
-
-// const sexo1 = 'Feminino';
-// const sexo2 = 'feminino';
-// const sexo3 = 'FEMININO';
-
-// (sexo1.toLowerCase() === 'feminino'); // true
-// (sexo2.toLowerCase() === 'feminino'); // true
-// (sexo3.toLowerCase() === 'feminino'); // true
-
-
-
-
-
-// //str.trim(), str.trimStart(), str.trimEnd()
-// //Remove espaço em branco do início ou final de uma string.
-
-// const valor = '  R$ 23.00   '
-// valor.trim(); // 'R$ 23.00'
-// valor.trimStart(); // 'R$ 23.00   '
-// valor.trimEnd(); // '  R$ 23.00'
-
-
-
-
-
-
-//Exercícios
-
-// Utilizando o foreach na array abaixo,
-// some os valores de Taxa e os valores de Recebimento
-
-const transacoes = [
-  {
-    descricao: 'Taxa do Pão',
-    valor: 'R$ 39',
-  },
-  {
-    descricao: 'Taxa do Mercado',
-    valor: 'R$ 129',
-  },
-  {
-    descricao: 'Recebimento de Cliente',
-    valor: 'R$ 99',
-  },
-  {
-    descricao: 'Taxa do Banco',
-    valor: 'R$ 129',
-  },
-  {
-    descricao: 'Recebimento de Taxa de Cliente',
-    valor: 'R$ 49',
-  },
-];
-
-let taxaTotal = 0;
-let recebimentoTotal = 0;
-
-transacoes.forEach((item) => {
-  const numeroLimpo = +item.valor.replace('R$ ', ""); //+ transforma em numero
-
-  if(item.descricao.slice(0, 4) === 'Taxa') {
-    taxaTotal = taxaTotal + numeroLimpo;
-  } else {
-    recebimentoTotal += numeroLimpo;
-  }
-});
-
-console.log(taxaTotal);
-console.log(recebimentoTotal);
-
-
-// Retorne uma array com a lista abaixo
-const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
-const novoTransportes = transportes.split(';');
-console.log(novoTransportes);
-
-
-// Substitua todos os span's por a's
-let html = `<ul>
-                <li><span>Sobre</span></li>
-                <li><span>Produtos</span></li>
-                <li><span>Contato</span></li>
-              </ul>`;
-
-html = html.split('span').join('a');
-console.log(html);
-
-
-// Retorne o último caracter da frase
-const frase2 = 'Melhor do ano!';
-console.log(frase2.slice(-1));
-
-// Retorne o total de taxas
-const transacoes1 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
-
-let totalTaxas = 0;
-transacoes1.forEach((item) => {
-  item = item.toLocaleLowerCase().trim().slice(0, 4)
-
-  if(item === 'taxa')
-    totalTaxas++
-});
-
-console.log(totalTaxas);
+console.log(total.toLocaleString('pt-BR', {style: 'currency', currency:'BLR'}));
