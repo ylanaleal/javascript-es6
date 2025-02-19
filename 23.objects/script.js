@@ -12,10 +12,6 @@
 //   idade: 28,
 // })
 
-
-
-
-
 // // Métodos de Object
 // // Object.create(obj, defineProperties) retorna um novo objeto que terá como protótipo o objeto do primeiro argumento.
 
@@ -35,10 +31,6 @@
 
 // const honda = Object.create(carro);
 // honda.init('Honda').acelerar();
-
-
-
-
 
 // // Object.assign()
 // // Object.assign(alvo, obj1, obj2) adiciona ao alvo as propriedades e métodos enumeráveis dos demais objetos. O assign irá modificar o objeto alvo.
@@ -65,10 +57,6 @@
 // Object.assign(moto, funcaoAutomovel);
 // Object.assign(carro, funcaoAutomovel);
 
-
-
-
-
 // // Object.defineProperties()
 // // Object.defineProperties(alvo, propriedades) adiciona ao alvo novas propriedades. A diferença aqui é a possibilidade de serem definidas as características dessas propriedades.
 
@@ -91,12 +79,7 @@
 // moto;
 // // {rodas: 2}
 
-
 //     //Existe também o Object.defineProperty, para uma propriedade única.
-
-
-
-
 
 // // get e set
 
@@ -118,10 +101,6 @@
 // moto.velocidade;
 // // Velocidade 200
 
-
-
-
-
 // // Object.getOwnPropertyDescriptors(obj)
 // // Lista todos os métodos e propriedades de um objeto, com as suas devidas configurações.
 
@@ -133,11 +112,6 @@
 
 // Object.getOwnPropertyDescriptor(window, 'innerHeight');
 // // Puxa de uma única propriedade
-
-
-
-
-
 
 // // Object.keys(obj), Object.values(obj) Object.entries(obj)
 // // Object.keys(obj) retorna uma array com as chaves de todas as propriedades diretas e enumeráveis do objeto. Object.values(obj) retorna uma array com os valores do objeto. Object.entries(obj) retorna uma array com array's contendo a chave e o valor.
@@ -156,11 +130,6 @@
 // Object.entries(carro);
 // // [['marca', 'Ford'], ['ano', 2018]]
 
-
-
-
-
-
 // // Object.getOwnPropertyNames(obj)
 // // Retorna uma array com todas as propriedades diretas do objeto (não retorna as do protótipo).
 
@@ -177,11 +146,6 @@
 // Object.getOwnPropertyNames(carro);
 // // ['marca', 'ano']
 
-
-
-
-
-
 // // Object.getPrototypeOf() e Object.is()
 // // Object.getPrototypeOf(), retorna o protótipo do objeto. Object.is(obj1, obj2) verifica se os objetos são iguais e retorna true ou false.
 
@@ -193,11 +157,6 @@
 // const frutas2 = ['Banana', 'Pêra'];
 
 // Object.is(frutas1, frutas2); // false
-
-
-
-
-
 
 // // Object.freeze(), Object.seal(), Object.preventExtensions()
 // // Object.freeze() impede qualquer mudança nas propriedades. Object.seal() previne a adição de novas propriedades e impede que as atuais sejam deletadas. Object.preventExtensions() previne a adição de novas propriedades.
@@ -214,10 +173,6 @@
 // Object.isSealed(carro); // true
 // Object.isExtensible(carro); // false
 
-
-
-
-
 // // Propriedades e Métodos do Protótipo
 // // Já que tudo em JavaScript é objeto, as propriedades abaixo estão disponíveis em todos os objetos criados a partir de funções construtoras. {}.constructor retorna a função construtora do objeto.
 
@@ -226,11 +181,6 @@
 
 // const frase = 'Isso é uma String';
 // frase.constructor; // String
-
-
-
-
-
 
 // // {}.hasOwnProperty('prop') e {}.propertyIsEnumerable('prop')
 // // Verifica se possui a propriedade e retorna true. A propriedade deve ser direta do objeto e não do protótipo. O {}.propertyIsEnumerable() verifica se a propriedade é enumerável.
@@ -244,23 +194,12 @@
 // Array.prototype.propertyIsEnumerable('map'); // false
 // window.propertyIsEnumerable('innerHeight'); // true
 
-
-
-
-
-
-
 // // {}.isPrototypeOf(valor)
 // // Verifica se é o protótipo do valor passado.
 
 // const frutas = ['Banana', 'Uva'];
 
 // Array.prototype.isPrototypeOf(frutas); // true
-
-
-
-
-
 
 // // {}.toString()
 // // Retorna o tipo do objeto. O problema é toString() ser uma função dos protótipos de Array, String e mais. Por isso é comum utilizarmos a função direto do Object.prototype.toString.call(valor).
@@ -284,10 +223,6 @@
 // typeof li; // object
 // Object.prototype.toString.call(li); // [object NodeList]
 
-
-
-
-
 // Exercícios
 
 // Crie uma função que verifique corretamente o tipo de dado
@@ -303,22 +238,20 @@ Object.defineProperties(quadrado, {
   lados: {
     value: 4,
     enumerable: true,
-  }
-})
+  },
+});
 
 console.log(quadrado);
-
 
 // Previna qualquer mudança
 // no objeto abaixo
 const configuracao = {
   width: 800,
   height: 600,
-  background: '#333'
-}
+  background: '#333',
+};
 
 Object.freeze(configuracao);
-
 
 // Liste o nome de todas
 // as propriedades do
