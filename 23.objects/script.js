@@ -1,7 +1,7 @@
 // // Object
 
 // // Todo objeto é criado com o construtor Object e por isso herda as propriedades e métodos do seu prototype.
-
+                                                                                                                        
 // const carro = {
 //   marca: 'Ford',
 //   ano: 2018,
